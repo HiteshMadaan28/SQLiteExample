@@ -34,22 +34,18 @@ public class MainActivity extends AppCompatActivity {
         e2 = findViewById(R.id.etlocation);
         e3 = findViewById(R.id.etdesignation);
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String name = e1.getText().toString()+"\n";
-                String location = e2.getText().toString();
-                String designation = e3.getText().toString();
+    }
 
-                DbHandler db = new DbHandler(MainActivity.this);
-                db.insertUserDetails(name,location,designation);
+    public void submit(View view) {
+        String name = e1.getText().toString()+"\n";
+        String location = e2.getText().toString();
+        String designation = e3.getText().toString();
 
-                Intent intent= new Intent(MainActivity.this,details.class);
-                startActivity(intent);
-                Toast.makeText(getApplicationContext(),"Data Inserted", Toast.LENGTH_SHORT).show();
+        DbHandler db = new DbHandler(MainActivity.this);
+        db.insertUserDetails(name,location,designation);
 
-            }
-        });
-
+        Intent intent= new Intent(MainActivity.this,details.class);
+        startActivity(intent);
+        Toast.makeText(getApplicationContext(),"Data Inserted", Toast.LENGTH_SHORT).show();
     }
 }
